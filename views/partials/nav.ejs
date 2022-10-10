@@ -1,0 +1,12 @@
+<ul>
+  <li><a href="/">Home</a></li>
+  <% if (!locals.sessions.loggedin) { %>
+      <li style="float:right"><a class="active" href="/user/login">Login</a></li>
+      <li style="float:right"><a class="active" href="/user/register">Register</a></li>
+      <% } else { %> 
+        <form   action="user/logout" method="POST">
+          <button style="float:right" class="btn" type="submit"  >Logout</button>
+        </form>
+      <%
+      } %>   
+</ul>
