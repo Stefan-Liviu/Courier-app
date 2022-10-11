@@ -5,7 +5,7 @@ const salt = 10;
 //create tabel
 function createTabel() {
     
-    let sql = "CREATE TABLE IF NOT EXISTS userdetails (id INT AUTO_INCREMENT PRIMARY KEY NOT NULL, username TEXT UNIQUE NOT NULL, password TEXT NOT NULL, email VARCHAR(50) NOT NULL, created_at DATETIME NOT NULL)"
+    let sql = "CREATE TABLE IF NOT EXISTS members (id INT AUTO_INCREMENT PRIMARY KEY NOT NULL, username TEXT UNIQUE NOT NULL, password TEXT NOT NULL, email VARCHAR(50) NOT NULL, created_at DATETIME NOT NULL)"
     connectionDb.query(sql, (err) => {
         if (err) throw err;
     })
@@ -18,7 +18,7 @@ function register(req, res) {
     let hash = bcrypt.hashSync(data.password, salt);
     let time = new Date();
 
-    let sql = "INSERT INTO userdetails (id, username, password, email, created_at) VALUES ?";
+    let sql = "INSERT INTO members (id, username, password, email, created_at) VALUES ?";
     let value = [
         [0, data.username, hash, data.email, time]
     ]  
@@ -44,7 +44,7 @@ function register(req, res) {
 //login
 function login(req, res) {
 
-    let sql = "SELECT * FROM userdetails WHERE username = ?";
+    let sql = "SELECT * FROM members WHERE username = ?";
     let data = req.body;
     let insertPassword = req.body.password;
 
