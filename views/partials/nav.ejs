@@ -1,0 +1,35 @@
+ <nav>
+  <ul>
+    <li><a style="float:right"  href="/">Home</a></li>
+    <li><a style="float:right" href="/user/newRoute">New Route</a></li>
+    <% if (!locals.sessions.username) { %>
+      <li ><a style="float:right" href="/user/login">Login</a></li>
+      <li ><a style="float:right" href="/user/register">Register</a></li>
+      <% } else { %>
+        <img src="/images/user.png" class="user-pic" onclick="toggleMenu()">
+        <div class="sub-menu-wrap" id="subMenu">
+          <div class="sub-menu" >
+            <div class="user-info">
+              <img src="/images/user.png" class="user-info">
+              <h3>Wellcome <%= locals.sessions.username %></h3>        
+            </div>
+            <hr>
+            <a href="/user/account" class="sub-menu-link">
+              <img src="/images/profile.png">
+              <p>My Account</p>
+            </a>
+            <% if (locals.sessions.username == 'admin') {%> 
+            <a href="/admin/members" class="sub-menu-link">
+              <img src="/images/members.png">
+              <p>Members</p>          
+            </a>
+            <% } %>
+            <a href="/user/logout"  class="sub-menu-link">
+              <img src="/images/logout.png">
+              <p>Logout</p>     
+            </a>
+          </div>
+        </div>
+    <% } %>
+  </ul>
+</nav>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/nav.css">
+    <link rel="stylesheet" href="/stylesheets/myAccount.css">
+   
+    <title>My Account</title>
+    <%- include('partials/nav') %> 
+    <script src="/javascript/nav.js"></script> 
+</head>  
+    
+<body>
+
+    <div class="profile">
+        <br> 
+        <img src="/images/user.png" class="profilePic"><br><br>
+        <h3>Username: <%= user.username %></h3>
+        <h3>Email Address: <%= user.email %></h3>
+        <h3>Access Level: <%= user.levelAccess %></h3>
+        <h3>Created on: <%= user.created_at.toLocaleString() %></h3>                   
+    </div>
+    
+</body>
+
+</html>

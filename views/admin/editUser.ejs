@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/nav.css"> 
+    <title>Edit User</title>    
+    <%- include('partials/nav') %> 
+    <script src="/javascript/nav.js"></script> 
+</head>  
+    
+<body>
+    <h2>Edit User: <%= result.username %>  </h2>  
+    <div class="register" >
+      <form action="/admin/user/<%=result.id %>/update" method="POST" >
+        <label for="username" >Username:</label><br>
+        <input type="text"  placeholder="Username" name="username" id="username" value="<%= result.username %>">
+        <br><br>
+        <label for="text">Level Access:</label><br><br>
+        <input type="text"  placeholder="levelAccess" name="levelAccess" id="levelAccess" value="<%= result.levelAccess %>">
+        <br><br>
+        <label for="email">Email:</label><br><br>
+         <input type="email" placeholder="Email" id="email" name="email" value="<%= result.email %>">
+        <br>
+        <br>
+        <button id="registerBtn">Update</button><br><br><br>
+    </form>        
+    </div> 
+     
+    
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+table.customTable {
+    width: 100%;
+    background-color: #FFFFFF;
+    border-collapse: collapse;
+    border-width: 2px;
+    border-color: #F8F8F8;
+    border-style: solid;
+    color: #000000;
+  }
+  
+table.customTable td, table.customTable th {
+    border-width: 2px;
+    border-color: #777676;
+    border-style: solid;
+    padding: 5px;
+  }
+  
+table.customTable thead {
+    background-color: #ffffff;
+  }
+
+.btnDelete {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    width: 90px;
+    height: 30px;
+    background: rgb(247, 67, 67);
+    cursor: pointer;
+}
+
+.btnEdit {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    width: 90px;
+    height: 30px;
+    color: #000000;
+    cursor: pointer;
+}

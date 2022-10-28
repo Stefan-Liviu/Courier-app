@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/nav.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/members.css">
+    <title>List of members</title>
+     <%- include('partials/nav') %> 
+    <script src="/javascript/nav.js"></script> 
+</head>  
+    
+<body>
+  <h3>List of members</h3><br>
+    <table class="customTable">
+        <thead>
+          <tr>
+            <th scope="col" >Username</th>
+            <th scope="col">Email</th>
+            <th scope="col">Level Access</th>
+            <th scope="col">Created At</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% result.forEach(result => { %>
+              <tr>
+                  <th scope="row"><%= result.username %></th>
+                  <td class="demo"><span><%= result.email %></span></td>
+                  <td><%= result.levelAccess %></td>
+                  <td><%= result.created_at.toLocaleString() %></td>
+                  <td><a href="/admin/user/<%= result.id %>/edit" class="d-inline">
+                    <button type="submit" class="btnEdit">EDIT</button></a></td>
+                  <td><a href="/admin/user/<%= result.id %>/delete"  class="d-inline">
+                    <button type="submit" class="btnDelete">DELETE</button></a></td>
+              </tr>
+          <% }) %>
+          </tbody>
+      </table>
+</body>
+
+</html>
