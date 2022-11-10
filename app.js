@@ -7,9 +7,10 @@ const flash = require('connect-flash')
 const indexRouter = require('./routers/index');
 const usersRouter = require('./routers/users');
 const adminRouter = require('./routers/admin');
+const parcelRouter = require('./routers/parcel');
 
 const app = express();
-const port = 3000;
+
 
 app.use(cookieParser());
 
@@ -41,8 +42,7 @@ app.use(flash());
 app.use('/', indexRouter);
 app.use('/', usersRouter);
 app.use('/', adminRouter);
+app.use('/', parcelRouter);
 
 
-app.listen(port, () => {
-    console.log('App listening on port', port);
-})
+app.listen(process.env.PORT || 3000);
