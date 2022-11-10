@@ -1,3 +1,4 @@
+
 const express = require("express");
 const cookieParser = require('cookie-parser');
 const sessions = require('express-session');
@@ -10,7 +11,7 @@ const adminRouter = require('./routers/admin');
 const parcelRouter = require('./routers/parcel');
 
 const app = express();
-
+const port = process.env.PORT || 3000;
 
 app.use(cookieParser());
 
@@ -45,4 +46,6 @@ app.use('/', adminRouter);
 app.use('/', parcelRouter);
 
 
-app.listen(process.env.PORT || 3000);
+app.listen(port, () => {
+    console.log('Server is running on port '+ port);
+});
